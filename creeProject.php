@@ -40,7 +40,7 @@ require_once 'config.php';
 
             <!-- ID Catégorie -->
             <?php 
-    $req = "SELECT id_categorie, nom_categorie FROM categories"; // Ajoutez ici 'nom' si vous voulez afficher le nom de la catégorie
+    $req = "SELECT id_categorie, nom_categorie FROM categories"; 
     $reponse = $pdo->query($req)->fetchAll();
     ?>
 

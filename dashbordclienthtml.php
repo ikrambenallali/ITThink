@@ -58,7 +58,32 @@ if (!isset($_SESSION['totalOffres'])) {
         </div>
       </div>
       <div class="bg-white shadow-md rounded-lg p-40 mt-4" id="affiche">
-
+      <h1 class="text-2xl font-bold text-center text-gray-800 mb-6 -mt-32">Liste des Projets</h1>
+        <div class="overflow-x-auto">
+            <table class="min-w-full bg-white shadow-md rounded-lg overflow-hidden">
+                <thead>
+                    <tr class="bg-rose-200 text-rose-600 uppercase text-sm leading-normal ">
+                        <th class="py-3 px-6 text-left">ID</th>
+                        <th class="py-3 px-6 text-left">Nom de projet</th>
+                        <th class="py-3 px-6 text-left">Description</th>
+                    </tr>
+                </thead>
+                <tbody class="text-gray-700 text-sm">
+                    <?php if (isset($_SESSION['allproject']) && is_array($_SESSION['allproject'])): ?>
+                        <?php foreach ($_SESSION['allproject'] as $projet): ?>
+                            <tr class="border-b border-rose-200 hover:bg-rose-100">
+                                <td class="py-3 px-6"><?= htmlspecialchars($projet['id_projet']) ?></td>
+                                <td class="py-3 px-6"><?= htmlspecialchars($projet['titre_projet']) ?></td>
+                                <td class="py-3 px-6"><?= htmlspecialchars($projet['description_projet']) ?></td>
+                            </tr>
+                        <?php endforeach; ?>
+                    <?php else: ?>
+                        <tr>
+                            <td colspan="3" class="py-3 px-6 text-center text-gray-500">Aucun projet trouvé.</td>
+                        </tr>
+                    <?php endif; ?>
+                </tbody>
+            </table>
       </div>
     </main>
   </div>
